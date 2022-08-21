@@ -1,0 +1,19 @@
+{
+  "parent": "block/cube",
+  "display": {
+    "firstperson_righthand": {
+      "rotation": [ 0, 135, 0 ],
+      "translation": [ 0, 0, 0 ],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    }
+  },
+  "textures": {
+    "particle": "minecraft:block/crafting_table_front",
+    "down": "minecraft:block/oak_planks",
+    "up": "instantblocks-utility:blocks/harvest_top",
+    "north": "instantblocks-utility:blocks/harvest_side_0",
+    "east": "instantblocks-utility:blocks/harvest_side_1",
+    "south": "instantblocks-utility:blocks/harvest_side_0",
+    "west": "instantblocks-utility:blocks/harvest_side_1"
+  }
+}

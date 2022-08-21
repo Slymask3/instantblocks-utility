@@ -1,0 +1,40 @@
+{
+    "schemaVersion": 1,
+    "id": "instantblocks-utility",
+    "version": "0.1.0",
+  
+    "name": "Instant Blocks: Utility",
+    "description": "Generate structures or perform actions instantaneously.",
+    "authors": [
+      "Slymask3"
+    ],
+    "contact": {
+      "homepage": "https://www.curseforge.com/minecraft/mc-mods/instant-blocks-fabric",
+      "sources": "https://github.com/slymask3/instant-blocks",
+      "issues": "https://github.com/slymask3/instant-blocks/issues"
+    },
+  
+    "license": "LGPLv3",
+    "icon": "assets/instantblocks-utility/icon.png",
+  
+    "environment": "*",
+    "entrypoints": {
+      "main": [
+        "com.slymask3.instantblocks.utility.InstantBlocks"
+      ],
+      "client": [
+        "com.slymask3.instantblocks.utility.InstantBlocksClient"
+      ],
+      "modmenu": [
+        "com.slymask3.instantblocks.utility.handler.ModMenuIntegration"
+      ]
+    },
+  
+    "depends": {
+      "instantblocks-core": ">=0.1",
+      "fabricloader": ">=0.14",
+      "fabric": "*",
+      "minecraft": "1.19.x",
+      "java": ">=17"
+    }
+}

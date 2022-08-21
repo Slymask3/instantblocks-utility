@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "instantblocks-utility:instant_escape_ladder",
+    "instantblocks-utility:instant_harvest"
+  ]
+}

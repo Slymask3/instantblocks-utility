@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "instantblocks-utility:block/instant_suction"
+    }
+  }
+}
