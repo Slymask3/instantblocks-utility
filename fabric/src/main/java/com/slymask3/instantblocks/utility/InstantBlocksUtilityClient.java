@@ -7,7 +7,7 @@ import net.fabricmc.fabric.impl.blockrenderlayer.BlockRenderLayerMapImpl;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 
-public class InstantBlocksClient implements ClientModInitializer {
+public class InstantBlocksUtilityClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageWaterColor(world, pos) : -1, ModBlocks.INSTANT_WATER);

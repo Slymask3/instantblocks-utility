@@ -10,8 +10,8 @@
     ],
     "contact": {
       "homepage": "https://www.curseforge.com/minecraft/mc-mods/instant-blocks-fabric",
-      "sources": "https://github.com/slymask3/instant-blocks",
-      "issues": "https://github.com/slymask3/instant-blocks/issues"
+      "sources": "https://github.com/slymask3/instantblocks-utility",
+      "issues": "https://github.com/slymask3/instantblocks-utility/issues"
     },
   
     "license": "LGPLv3",
@@ -20,10 +20,10 @@
     "environment": "*",
     "entrypoints": {
       "main": [
-        "com.slymask3.instantblocks.utility.InstantBlocks"
+        "com.slymask3.instantblocks.utility.InstantBlocksUtility"
       ],
       "client": [
-        "com.slymask3.instantblocks.utility.InstantBlocksClient"
+        "com.slymask3.instantblocks.utility.InstantBlocksUtilityClient"
       ],
       "modmenu": [
         "com.slymask3.instantblocks.utility.handler.ModMenuIntegration"
@@ -36,5 +36,11 @@
       "fabric": "*",
       "minecraft": "1.19.x",
       "java": ">=17"
+    },
+
+  "custom": {
+    "modmenu": {
+      "parent": "instantblocks-core"
     }
+  }
 }

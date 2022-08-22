@@ -1,6 +1,7 @@
 package com.slymask3.instantblocks.utility;
 
 import com.slymask3.instantblocks.core.builder.Builder;
+import com.slymask3.instantblocks.core.init.IRegistryHelper;
 import com.slymask3.instantblocks.core.network.IPacketHandler;
 import com.slymask3.instantblocks.core.network.packet.AbstractPacket;
 import com.slymask3.instantblocks.core.platform.Services;
@@ -8,7 +9,6 @@ import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.config.ClothConfig;
 import com.slymask3.instantblocks.utility.handler.LootHandler;
 import com.slymask3.instantblocks.utility.init.FabricTiles;
-import com.slymask3.instantblocks.utility.init.IRegistryHelper;
 import com.slymask3.instantblocks.utility.init.Registration;
 import com.slymask3.instantblocks.utility.network.FabricPacketHandler;
 import net.fabricmc.api.ModInitializer;
@@ -25,7 +25,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-public class InstantBlocks implements ModInitializer {
+public class InstantBlocksUtility implements ModInitializer {
     @Override
     public void onInitialize() {
         Common.NETWORK = new PacketHandler();

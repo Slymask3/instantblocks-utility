@@ -1,6 +1,7 @@
 package com.slymask3.instantblocks.utility;
 
 import com.slymask3.instantblocks.core.builder.Builder;
+import com.slymask3.instantblocks.core.init.IRegistryHelper;
 import com.slymask3.instantblocks.core.network.ForgePacketHandler;
 import com.slymask3.instantblocks.core.network.IPacketHandler;
 import com.slymask3.instantblocks.core.network.packet.AbstractPacket;
@@ -9,7 +10,6 @@ import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.config.ClothConfig;
 import com.slymask3.instantblocks.utility.config.ForgeConfig;
 import com.slymask3.instantblocks.utility.init.ForgeTiles;
-import com.slymask3.instantblocks.utility.init.IRegistryHelper;
 import com.slymask3.instantblocks.utility.init.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
@@ -30,8 +30,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegisterEvent;
 
 @Mod(Common.FORGE_MOD_ID)
-public class InstantBlocks {
-	public InstantBlocks() {
+public class InstantBlocksUtility {
+	public InstantBlocksUtility() {
 		Common.NETWORK = new PacketHandler();
 		Common.TILES = new ForgeTiles();
 

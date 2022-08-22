@@ -1,7 +1,7 @@
 modLoader="javafml"
 loaderVersion="[39,)"
 license="LGPLv3"
-issueTrackerURL="https://github.com/slymask3/instant-blocks/issues"
+issueTrackerURL="https://github.com/slymask3/instantblocks-utility/issues"
 
 [[mods]]
 modId="instantblocks_utility"
@@ -17,7 +17,7 @@ description="Generate structures or perform actions instantaneously."
 [[dependencies.instantblocks_utility]]
     modId="instantblocks_core"
     mandatory=true
-    versionRange="[0.1,1.0)"
+    versionRange="[0.1,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.instantblocks_utility]]

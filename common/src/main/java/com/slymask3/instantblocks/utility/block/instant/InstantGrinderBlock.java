@@ -1,13 +1,13 @@
 package com.slymask3.instantblocks.utility.block.instant;
 
-import com.slymask3.instantblocks.utility.Common;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.builder.BlockType;
 import com.slymask3.instantblocks.core.builder.Builder;
 import com.slymask3.instantblocks.core.builder.type.Multiple;
 import com.slymask3.instantblocks.core.builder.type.Single;
 import com.slymask3.instantblocks.core.util.Helper;
+import com.slymask3.instantblocks.utility.Common;
+import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;

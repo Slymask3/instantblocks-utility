@@ -1,17 +1,18 @@
 package com.slymask3.instantblocks.utility.block;
 
 import com.mojang.math.Vector3f;
-import com.slymask3.instantblocks.utility.Common;
-import com.slymask3.instantblocks.utility.block.instant.InstantSuctionBlock;
-import com.slymask3.instantblocks.utility.block.instant.InstantWaterBlock;
-import com.slymask3.instantblocks.utility.registry.ModBlocks;
-import com.slymask3.instantblocks.utility.reference.Strings;
-import com.slymask3.instantblocks.core.util.ClientHelper;
+import com.slymask3.instantblocks.core.Core;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.builder.BlockPosHolder;
 import com.slymask3.instantblocks.core.builder.Builder;
 import com.slymask3.instantblocks.core.builder.type.Single;
+import com.slymask3.instantblocks.core.util.ClientHelper;
 import com.slymask3.instantblocks.core.util.Helper;
+import com.slymask3.instantblocks.utility.Common;
+import com.slymask3.instantblocks.utility.block.instant.InstantSuctionBlock;
+import com.slymask3.instantblocks.utility.block.instant.InstantWaterBlock;
+import com.slymask3.instantblocks.utility.reference.Strings;
+import com.slymask3.instantblocks.utility.registry.ModBlocks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -114,7 +115,7 @@ public abstract class InstantLiquidBlock extends InstantBlock {
 	}
 
 	public boolean canActivate(Level world, BlockPos pos, Player player) {
-		if(Helper.isNether(world) && blockReplace.equals(Blocks.WATER) && !Common.CONFIG.ALLOW_WATER_IN_NETHER()) {
+		if(Helper.isNether(world) && blockReplace.equals(Blocks.WATER) && !Core.CONFIG.ALLOW_WATER_IN_NETHER()) {
 			Helper.sendMessage(player, Strings.ERROR_WATER_DISABLED);
 			return false;
 		}

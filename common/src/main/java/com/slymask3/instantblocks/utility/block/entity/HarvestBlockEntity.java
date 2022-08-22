@@ -1,7 +1,7 @@
 package com.slymask3.instantblocks.utility.block.entity;
 
-import com.slymask3.instantblocks.utility.registry.ModTiles;
 import com.slymask3.instantblocks.core.block.entity.InstantBlockEntity;
+import com.slymask3.instantblocks.utility.registry.ModTiles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.state.BlockState;
