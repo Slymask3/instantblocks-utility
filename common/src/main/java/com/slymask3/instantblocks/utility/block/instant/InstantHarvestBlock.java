@@ -7,6 +7,7 @@ import com.slymask3.instantblocks.core.util.ClientHelper;
 import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.Common;
 import com.slymask3.instantblocks.utility.block.entity.HarvestBlockEntity;
+import com.slymask3.instantblocks.utility.gui.screens.HarvestScreen;
 import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -28,12 +29,16 @@ public class InstantHarvestBlock extends InstantBlock implements EntityBlock {
 				.strength(1.5F)
 				.sound(SoundType.WOOD)
 		);
-		setScreen(ClientHelper.Screen.HARVEST);
+		hasScreen();
 		setCreateMessage(Strings.CREATE_HARVEST);
 	}
 
 	public boolean isEnabled() {
 		return Common.CONFIG.ENABLE_HARVEST();
+	}
+
+	public void openScreen(Player player, BlockPos pos) {
+		ClientHelper.showScreen(new HarvestScreen(player,player.getLevel(),pos));
 	}
 
 	@Override

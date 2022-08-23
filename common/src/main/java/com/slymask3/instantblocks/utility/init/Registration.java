@@ -56,6 +56,7 @@ public class Registration {
     }
     
     private static BlockItem blockItem(Block block) {
+        Common.LOG.info("Core.ITEM_GROUP: {}", Core.ITEM_GROUP);
         return new BlockItem(block,new Item.Properties().tab(Core.ITEM_GROUP));
     }
 }

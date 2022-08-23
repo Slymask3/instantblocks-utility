@@ -1,5 +1,6 @@
 package com.slymask3.instantblocks.utility.network;
 
+import com.slymask3.instantblocks.core.network.CoreForgePacketHandler;
 import com.slymask3.instantblocks.core.network.packet.AbstractPacket;
 import com.slymask3.instantblocks.utility.network.packet.server.HarvestPacket;
 import net.minecraft.network.FriendlyByteBuf;
@@ -11,7 +12,7 @@ import java.util.function.Supplier;
 public class ForgePacketHandler {
     public static void register() {
         int index = 300;
-        com.slymask3.instantblocks.core.network.ForgePacketHandler.INSTANCE.registerMessage(++index, HarvestPacket.class, (HarvestPacket message, FriendlyByteBuf buffer) -> message.write(message,buffer), HarvestPacket::decode, Handler::server);
+        CoreForgePacketHandler.INSTANCE.registerMessage(++index, HarvestPacket.class, (HarvestPacket message, FriendlyByteBuf buffer) -> message.write(message,buffer), HarvestPacket::decode, Handler::server);
     }
 
     public static class Handler {

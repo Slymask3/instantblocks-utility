@@ -18,7 +18,7 @@ description="Generate structures or perform actions instantaneously."
     modId="instantblocks_core"
     mandatory=true
     versionRange="[0.1,)"
-    ordering="NONE"
+    ordering="BEFORE"
     side="BOTH"
 [[dependencies.instantblocks_utility]]
     modId="forge"

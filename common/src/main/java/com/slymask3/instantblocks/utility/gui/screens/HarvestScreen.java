@@ -1,8 +1,8 @@
 package com.slymask3.instantblocks.utility.gui.screens;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.slymask3.instantblocks.core.Core;
 import com.slymask3.instantblocks.core.gui.screens.InstantScreen;
-import com.slymask3.instantblocks.utility.Common;
 import com.slymask3.instantblocks.utility.block.entity.HarvestBlockEntity;
 import com.slymask3.instantblocks.utility.network.packet.server.HarvestPacket;
 import net.minecraft.client.gui.components.Checkbox;
@@ -78,6 +78,6 @@ public class HarvestScreen extends InstantScreen {
 	}
 
 	public void sendInfo(boolean activate) {
-		Common.NETWORK.sendToServer(new HarvestPacket(activate, this.pos, logOak.selected(), logSpruce.selected(), logBirch.selected(), logJungle.selected(), logAcacia.selected(), logDark.selected(), wheat.selected(), carrot.selected(), potato.selected(), cactus.selected(), pumpkin.selected(), melon.selected(), sugarcane.selected(), cocoa.selected(), mushroom.selected(), netherwart.selected(), replant.selected()));
+		Core.NETWORK.sendToServer(new HarvestPacket(activate, this.pos, logOak.selected(), logSpruce.selected(), logBirch.selected(), logJungle.selected(), logAcacia.selected(), logDark.selected(), wheat.selected(), carrot.selected(), potato.selected(), cactus.selected(), pumpkin.selected(), melon.selected(), sugarcane.selected(), cocoa.selected(), mushroom.selected(), netherwart.selected(), replant.selected()));
 	}
 }

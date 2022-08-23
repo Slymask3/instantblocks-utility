@@ -3,15 +3,15 @@ package com.slymask3.instantblocks.utility.network;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.network.packet.InstantPacket;
 import com.slymask3.instantblocks.core.util.Helper;
+import com.slymask3.instantblocks.utility.Common;
 import com.slymask3.instantblocks.utility.block.entity.HarvestBlockEntity;
 import com.slymask3.instantblocks.utility.network.packet.server.HarvestPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 public class PacketHelper {
-    public enum PacketID {
-        HARVEST
-    }
+    public static ResourceLocation PACKET_HARVEST = new ResourceLocation(Common.FABRIC_MOD_ID,"harvest");
 
     private static void activate(InstantPacket message, Level world, Player player) {
         if(message.activate) {
