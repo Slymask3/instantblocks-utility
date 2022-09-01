@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "minecraft:block/glass",
+    "side": "instantblocks-utility:blocks/glassdome_side",
+    "bottom": "minecraft:block/stone"
+  },
+  "render_type": "translucent"
+}

@@ -3,6 +3,7 @@
   "values": [
     "instantblocks-utility:instant_grinder",
     "instantblocks-utility:instant_mining_ladder",
+    "instantblocks-utility:instant_glass_dome",
     "instantblocks-utility:instant_suction"
   ]
 }

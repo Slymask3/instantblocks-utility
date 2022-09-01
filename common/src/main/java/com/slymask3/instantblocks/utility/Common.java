@@ -11,6 +11,7 @@ public class Common {
     public static final String FABRIC_MOD_ID = Core.MOD_BASE + "-" + MOD_ADDON;
     public static final String FORGE_MOD_ID = Core.MOD_BASE + "_" + MOD_ADDON;
     public static final Logger LOG = LoggerFactory.getLogger(FABRIC_MOD_ID);
+
     public static ITileHelper TILES;
     public static IConfig CONFIG = new IConfig(){};
 

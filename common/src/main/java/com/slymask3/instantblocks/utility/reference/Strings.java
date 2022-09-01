@@ -12,6 +12,7 @@ public class Strings {
 	public static final String ERROR_WATER_DISABLED = ERROR + "water_disabled";
 
 	private static final String CREATE = "ib.message.create.";
+	public static final String CREATE_DOME = CREATE + "dome";
 	public static final String CREATE_GRINDER = CREATE + "grinder";
 	public static final String CREATE_MINING_LADDER = CREATE + "mining_ladder";
 	public static final String CREATE_LAVA = CREATE + "lava";

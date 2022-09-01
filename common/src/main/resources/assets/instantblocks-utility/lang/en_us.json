@@ -1,5 +1,6 @@
 {
   "block.instantblocks-utility.instant_mining_ladder": "Instant Mining Ladder",
+  "block.instantblocks-utility.instant_glass_dome": "Instant Glass Dome",
   "block.instantblocks-utility.instant_grinder": "Instant Grinder",
   "block.instantblocks-utility.instant_escape_ladder": "Instant Escape Ladder",
   "block.instantblocks-utility.instant_water": "Instant Water",
@@ -19,6 +20,7 @@
 
   "ib.message.create.grinder": "§aInstant Grinder created",
   "ib.message.create.mining_ladder": "§aInstant Mining Ladder created",
+  "ib.message.create.dome": "§aInstant Glass Dome created",
   "ib.message.create.lava": "§aInstant Lava created with %s§a lava blocks",
   "ib.message.create.lava_single": "§aInstant Lava created with 1 lava block",
   "ib.message.create.water": "§aInstant Water created with %s§a water blocks",
@@ -30,6 +32,8 @@
   "ib.message.create.escape_ladder": "§aInstant Escape Ladder created going %s§a blocks up",
 
   "ib.tooltip.mining_ladder": "Creates a ladder down to layer %s.",
+  "ib.tooltip.glass_dome.1": "Creates a small glass dome.",
+  "ib.tooltip.glass_dome.2": "Useful for underwater.",
   "ib.tooltip.grinder.1": "Creates a simple grinder.",
   "ib.tooltip.grinder.2": "Place above a Zombie/Skeleton spawner.",
   "ib.tooltip.escape_ladder": "Creates a ladder to the surface.",
@@ -58,6 +62,9 @@
   "text.autoconfig.instantblocks/utility.option.mining": "Instant Mining Ladder",
   "text.autoconfig.instantblocks/utility.option.mining.MINING_LADDER_LAYER": "Mining layer",
 
+  "text.autoconfig.instantblocks/utility.option.dome": "Instant Glass Dome",
+  "text.autoconfig.instantblocks/utility.option.dome.RADIUS_DOME": "Radius of the dome",
+
   "text.autoconfig.instantblocks/utility.option.grinder": "Instant Grinder",
   "text.autoconfig.instantblocks/utility.option.grinder.TP_GRINDER": "Teleport to the collection room",
 
@@ -76,6 +83,7 @@
   "text.autoconfig.instantblocks/utility.category.toggle": "Toggle",
   "text.autoconfig.instantblocks/utility.option.toggle.@PrefixText": "Toggling instant blocks",
   "text.autoconfig.instantblocks/utility.option.toggle.ENABLE_MINING_LADDER": "Enable Instant Mining Ladder",
+  "text.autoconfig.instantblocks/utility.option.toggle.ENABLE_GLASS_DOME": "Enable Instant Glass Dome",
   "text.autoconfig.instantblocks/utility.option.toggle.ENABLE_GRINDER": "Enable Instant Grinder",
   "text.autoconfig.instantblocks/utility.option.toggle.ENABLE_ESCAPE_LADDER": "Enable Instant Escape Ladder",
   "text.autoconfig.instantblocks/utility.option.toggle.ENABLE_WATER": "Enable Instant Water",

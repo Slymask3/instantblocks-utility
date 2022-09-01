@@ -14,6 +14,8 @@ public class InstantBlocksUtility implements ModInitializer {
     @Override
     public void onInitialize() {
         Common.LOG.info("loading mod: {}", Common.FABRIC_MOD_ID);
+
+        Common.init();
         Common.TILES = new FabricTiles();
 
         if(Services.PLATFORM.isModLoaded("cloth-config")) {
@@ -27,6 +29,5 @@ public class InstantBlocksUtility implements ModInitializer {
 
         LootHandler.register();
         FabricPacketHandler.Common.init();
-        Common.init();
     }
 }

@@ -5,6 +5,7 @@ import net.minecraft.world.level.block.Block;
 
 public class ModBlocks {
     public static Block INSTANT_MINING_LADDER;
+    public static Block INSTANT_GLASS_DOME;
     public static Block INSTANT_GRINDER;
     public static Block INSTANT_ESCAPE_LADDER;
     public static Block INSTANT_WATER;
@@ -15,6 +16,7 @@ public class ModBlocks {
 
     public static void init() {
         INSTANT_MINING_LADDER = new InstantMiningLadderBlock();
+        INSTANT_GLASS_DOME = new InstantGlassDomeBlock();
         INSTANT_GRINDER = new InstantGrinderBlock();
         INSTANT_ESCAPE_LADDER = new InstantEscapeLadderBlock();
         INSTANT_WATER = new InstantWaterBlock();

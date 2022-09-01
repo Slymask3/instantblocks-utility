@@ -13,7 +13,7 @@ public class InstantBlocksUtilityClient implements ClientModInitializer {
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageWaterColor(world, pos) : -1, ModBlocks.INSTANT_WATER);
         ColorProviderRegistry.ITEM.register((itemStack,tintIndex) -> 4159204, ModBlocks.INSTANT_WATER.asItem());
 
-        BlockRenderLayerMapImpl.INSTANCE.putBlocks(RenderType.translucent(), ModBlocks.INSTANT_ESCAPE_LADDER, ModBlocks.INSTANT_WATER, ModBlocks.INSTANT_GRINDER);
+        BlockRenderLayerMapImpl.INSTANCE.putBlocks(RenderType.translucent(), ModBlocks.INSTANT_GLASS_DOME, ModBlocks.INSTANT_ESCAPE_LADDER, ModBlocks.INSTANT_WATER, ModBlocks.INSTANT_GRINDER);
         BlockRenderLayerMapImpl.INSTANCE.putBlocks(RenderType.cutout(), ModBlocks.INSTANT_LIGHT);
     }
 }

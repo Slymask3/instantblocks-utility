@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 public class Registration {
     public static final class Names {
         public static final String MINING_LADDER = "instant_mining_ladder";
+        public static final String GLASS_DOME = "instant_glass_dome";
         public static final String GRINDER = "instant_grinder";
         public static final String ESCAPE_LADDER = "instant_escape_ladder";
         public static final String WATER = "instant_water";
@@ -27,6 +28,7 @@ public class Registration {
     public static void registerBlocks(IRegistryHelper<Block> helper) {
         ModBlocks.init();
         helper.register(resource(Names.MINING_LADDER), ModBlocks.INSTANT_MINING_LADDER);
+        helper.register(resource(Names.GLASS_DOME), ModBlocks.INSTANT_GLASS_DOME);
         helper.register(resource(Names.GRINDER), ModBlocks.INSTANT_GRINDER);
         helper.register(resource(Names.ESCAPE_LADDER), ModBlocks.INSTANT_ESCAPE_LADDER);
         helper.register(resource(Names.WATER), ModBlocks.INSTANT_WATER);
@@ -38,6 +40,7 @@ public class Registration {
 
     public static void registerItems(IRegistryHelper<Item> helper) {
         helper.register(resource(Names.MINING_LADDER), blockItem(ModBlocks.INSTANT_MINING_LADDER));
+        helper.register(resource(Names.GLASS_DOME), blockItem(ModBlocks.INSTANT_GLASS_DOME));
         helper.register(resource(Names.GRINDER), blockItem(ModBlocks.INSTANT_GRINDER));
         helper.register(resource(Names.ESCAPE_LADDER), blockItem(ModBlocks.INSTANT_ESCAPE_LADDER));
         helper.register(resource(Names.WATER), blockItem(ModBlocks.INSTANT_WATER));

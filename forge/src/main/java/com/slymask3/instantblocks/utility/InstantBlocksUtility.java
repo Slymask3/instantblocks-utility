@@ -18,6 +18,7 @@ import net.minecraftforge.registries.RegisterEvent;
 @Mod(Common.FORGE_MOD_ID)
 public class InstantBlocksUtility {
 	public InstantBlocksUtility() {
+		Common.init();
 		Common.TILES = new ForgeTiles();
 
 		if(Services.PLATFORM.isModLoaded("cloth_config")) {
@@ -36,7 +37,6 @@ public class InstantBlocksUtility {
 
 	private void setupCommon(final FMLCommonSetupEvent event) {
 		ForgePacketHandler.register();
-		Common.init();
 	}
 
 	private void setupRegistry(final RegisterEvent event) {

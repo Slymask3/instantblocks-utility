@@ -14,11 +14,13 @@ public class ForgeConfig implements IConfig {
 		public static IntValue RADIUS_LIGHT;
 		public static IntValue LIGHT_MAX;
 		public static IntValue MINING_LADDER_LAYER;
+		public static IntValue RADIUS_DOME;
 
 		public static IntValue MAX_LIQUID;
 		public static IntValue MAX_FILL;
 		public static BooleanValue SIMPLE_LIQUID;
 		public static BooleanValue ENABLE_MINING_LADDER;
+		public static BooleanValue ENABLE_GLASS_DOME;
 		public static BooleanValue ENABLE_GRINDER;
 		public static BooleanValue ENABLE_ESCAPE_LADDER;
 		public static BooleanValue ENABLE_WATER;
@@ -50,6 +52,10 @@ public class ForgeConfig implements IConfig {
 					.comment("Mining layer for the Instant Mining Ladder.\nDefault: -59")
 					.defineInRange("MINING_LADDER_LAYER", Defaults.MINING_LADDER_LAYER,-59,320);
 
+			RADIUS_DOME = builder
+					.comment("Glass dome radius.\nDefault: 4")
+					.defineInRange("RADIUS_DOME", Defaults.RADIUS_DOME,1,100);
+
 			builder.pop();
 
 			builder.comment("Toggling instant blocks").push("toggle");
@@ -58,6 +64,11 @@ public class ForgeConfig implements IConfig {
 					.comment("Default: false")
 					.worldRestart()
 					.define("ENABLE_MINING_LADDER", Defaults.ENABLE_MINING_LADDER);
+
+			ENABLE_GLASS_DOME = builder
+					.comment("Default: false")
+					.worldRestart()
+					.define("ENABLE_GLASS_DOME", Defaults.ENABLE_GLASS_DOME);
 
 			ENABLE_GRINDER = builder
 					.comment("Default: false")
@@ -132,10 +143,12 @@ public class ForgeConfig implements IConfig {
 	public int RADIUS_LIGHT() { return Common.RADIUS_LIGHT.get(); }
 	public int LIGHT_MAX() { return Common.LIGHT_MAX.get(); }
 	public int MINING_LADDER_LAYER() { return Common.MINING_LADDER_LAYER.get(); }
+	public int RADIUS_DOME() { return Common.RADIUS_DOME.get(); }
 	public int MAX_LIQUID() { return Common.MAX_LIQUID.get(); }
 	public int MAX_FILL() { return Common.MAX_FILL.get(); }
 	public boolean SIMPLE_LIQUID() { return Common.SIMPLE_LIQUID.get(); }
 	public boolean ENABLE_MINING_LADDER() { return Common.ENABLE_MINING_LADDER.get(); }
+	public boolean ENABLE_GLASS_DOME() { return Common.ENABLE_GLASS_DOME.get(); }
 	public boolean ENABLE_GRINDER() { return Common.ENABLE_GRINDER.get(); }
 	public boolean ENABLE_ESCAPE_LADDER() { return Common.ENABLE_ESCAPE_LADDER.get(); }
 	public boolean ENABLE_WATER() { return Common.ENABLE_WATER.get(); }

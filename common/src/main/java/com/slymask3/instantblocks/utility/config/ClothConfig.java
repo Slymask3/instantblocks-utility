@@ -33,6 +33,14 @@ public class ClothConfig implements ConfigData, IConfig {
 
     @ConfigEntry.Category("blocks")
     @ConfigEntry.Gui.CollapsibleObject
+    SectionDome dome = new SectionDome();
+    static class SectionDome {
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
+        int RADIUS_DOME = Defaults.RADIUS_DOME;
+    }
+
+    @ConfigEntry.Category("blocks")
+    @ConfigEntry.Gui.CollapsibleObject
     SectionGrinder grinder = new SectionGrinder();
     static class SectionGrinder {
         boolean TP_GRINDER = Defaults.TP_GRINDER;
@@ -69,6 +77,7 @@ public class ClothConfig implements ConfigData, IConfig {
     SectionToggle toggle = new SectionToggle();
     static class SectionToggle {
         boolean ENABLE_MINING_LADDER = Defaults.ENABLE_MINING_LADDER;
+        boolean ENABLE_GLASS_DOME = Defaults.ENABLE_GLASS_DOME;
         boolean ENABLE_GRINDER = Defaults.ENABLE_GRINDER;
         boolean ENABLE_ESCAPE_LADDER = Defaults.ENABLE_ESCAPE_LADDER;
         boolean ENABLE_WATER = Defaults.ENABLE_WATER;
@@ -83,10 +92,12 @@ public class ClothConfig implements ConfigData, IConfig {
     public int RADIUS_LIGHT() { return light.RADIUS_LIGHT; }
     public int LIGHT_MAX() { return light.LIGHT_MAX; }
     public int MINING_LADDER_LAYER() { return mining.MINING_LADDER_LAYER; }
+    public int RADIUS_DOME() { return dome.RADIUS_DOME; }
     public int MAX_LIQUID() { return liquid.MAX_LIQUID; }
     public int MAX_FILL() { return liquid.MAX_FILL; }
     public boolean SIMPLE_LIQUID() { return liquid.SIMPLE_LIQUID; }
     public boolean ENABLE_MINING_LADDER() { return toggle.ENABLE_MINING_LADDER; }
+    public boolean ENABLE_GLASS_DOME() { return toggle.ENABLE_GLASS_DOME; }
     public boolean ENABLE_GRINDER() { return toggle.ENABLE_GRINDER; }
     public boolean ENABLE_ESCAPE_LADDER() { return toggle.ENABLE_ESCAPE_LADDER; }
     public boolean ENABLE_WATER() { return toggle.ENABLE_WATER; }
