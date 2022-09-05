@@ -2,7 +2,6 @@ package com.slymask3.instantblocks.utility.block.instant;
 
 import com.slymask3.instantblocks.utility.Common;
 import com.slymask3.instantblocks.utility.block.InstantLiquidBlock;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -14,8 +13,8 @@ public class InstantSuctionBlock extends InstantLiquidBlock {
                 .strength(1.5F)
                 .sound(SoundType.METAL)
         , null, Blocks.AIR);
-        this.setErrorMessage(Strings.ERROR_SUCTION);
-        this.setCreateMessages(Strings.CREATE_SUCTION,Strings.CREATE_SUCTION_1);
+        this.setErrorMessage(Common.Strings.ERROR_SUCTION);
+        this.setCreateMessages(Common.Strings.CREATE_SUCTION, Common.Strings.CREATE_SUCTION_1);
     }
 
     public boolean isEnabled() {

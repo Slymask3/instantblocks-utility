@@ -1,5 +1,6 @@
 package com.slymask3.instantblocks.utility.block.instant;
 
+import com.slymask3.instantblocks.core.Core;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.builder.BlockType;
 import com.slymask3.instantblocks.core.builder.Builder;
@@ -7,7 +8,6 @@ import com.slymask3.instantblocks.core.builder.type.Multiple;
 import com.slymask3.instantblocks.core.builder.type.Single;
 import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.Common;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -27,7 +27,7 @@ public class InstantGrinderBlock extends InstantBlock {
 				.sound(SoundType.METAL)
 				.noOcclusion()
 		);
-        setCreateMessage(Strings.CREATE_GRINDER);
+        setCreateMessage(Common.Strings.CREATE_GRINDER);
     }
 
 	public boolean isEnabled() {
@@ -45,14 +45,14 @@ public class InstantGrinderBlock extends InstantBlock {
 
 	public boolean canActivate(Level world, BlockPos pos, Player player) {
 		if(Helper.getBlock(world,pos.below(1)) != Blocks.SPAWNER) {
-			Helper.sendMessage(player, Strings.ERROR_GRINDER);
+			Helper.sendMessage(player, Common.Strings.ERROR_GRINDER);
 			return false;
 		}
 		return true;
 	}
 
 	public boolean build(Level world, int x, int y, int z, Player player) {
-		Builder builder = Builder.setup(world,x,y,z).setSpeed(5);
+		Builder builder = Builder.setup(world,x,y,z,player).setSpeed(5);
 
 		Block water = Blocks.WATER;
 		Block torch = Blocks.WALL_TORCH;
@@ -218,6 +218,11 @@ public class InstantGrinderBlock extends InstantBlock {
 		if(Common.CONFIG.TP_GRINDER()) {
 			Single.setup(builder,world,x+7,y-4,z).setBlock(glass).queue();
 			Single.setup(builder,world,x+7,y-3,z).setBlock(glass).queue();
+		}
+
+		if(!builder.hasEnoughCharge()) {
+			Helper.sendMessage(player, Core.Strings.ERROR_WAND_CHARGE);
+			return false;
 		}
 
 		builder.build();

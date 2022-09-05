@@ -1,12 +1,12 @@
 package com.slymask3.instantblocks.utility.block.instant;
 
+import com.slymask3.instantblocks.core.Core;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.builder.Builder;
 import com.slymask3.instantblocks.core.builder.type.Multiple;
 import com.slymask3.instantblocks.core.builder.type.Single;
 import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.Common;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -23,7 +23,7 @@ public class InstantMiningLadderBlock extends InstantBlock {
 				.strength(1.5F)
 				.sound(SoundType.STONE)
 		);
-		setCreateMessage(Strings.CREATE_MINING_LADDER);
+		setCreateMessage(Common.Strings.CREATE_MINING_LADDER);
 		setDirectional(true);
     }
 
@@ -33,7 +33,7 @@ public class InstantMiningLadderBlock extends InstantBlock {
 
 	public boolean canActivate(Level world, BlockPos pos, Player player) {
 		if(pos.getY() <= Common.CONFIG.MINING_LADDER_LAYER() + 4) {
-			Helper.sendMessage(player, Strings.ERROR_LADDER, ChatFormatting.RED + String.valueOf(Common.CONFIG.MINING_LADDER_LAYER() + 4));
+			Helper.sendMessage(player, Common.Strings.ERROR_LADDER, ChatFormatting.RED + String.valueOf(Common.CONFIG.MINING_LADDER_LAYER() + 4));
 			return false;
 		}
 		return true;
@@ -42,7 +42,7 @@ public class InstantMiningLadderBlock extends InstantBlock {
 	public boolean build(Level world, int x, int y, int z, Player player) {
 		Direction direction = world.getBlockState(new BlockPos(x,y,z)).getValue(FACING);
 
-		Builder builder = Builder.setup(world,x,y,z).setSpeed(2).setDirection(direction.getCounterClockWise());
+		Builder builder = Builder.setup(world,x,y,z,player).setSpeed(2).setDirection(direction.getCounterClockWise());
 
 		Block ladder = Blocks.LADDER;
 		Block torch = Blocks.TORCH;
@@ -75,6 +75,11 @@ public class InstantMiningLadderBlock extends InstantBlock {
 		Single.setup(builder,world,x,layer+2,z).offset(direction,0,0,0,1).setBlock(water).queue(); //WATER
 		Single.setup(builder,world,x,layer+1,z).offset(direction,0,0,0,1).setBlock(sign).setDirection(directionSign).queue();
 		Single.setup(builder,world,x,layer-1,z).setStone().queue(); //MIDDLE STONE
+
+		if(!builder.hasEnoughCharge()) {
+			Helper.sendMessage(player, Core.Strings.ERROR_WAND_CHARGE);
+			return false;
+		}
 
 		builder.build();
 

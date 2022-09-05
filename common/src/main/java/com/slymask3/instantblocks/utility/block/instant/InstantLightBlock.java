@@ -1,12 +1,13 @@
 package com.slymask3.instantblocks.utility.block.instant;
 
+import com.slymask3.instantblocks.core.Core;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.builder.BlockType;
 import com.slymask3.instantblocks.core.builder.Builder;
 import com.slymask3.instantblocks.core.builder.type.Single;
 import com.slymask3.instantblocks.core.builder.type.Sphere;
+import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.Common;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -49,11 +50,17 @@ public class InstantLightBlock extends InstantBlock {
     }
     
     public boolean build(Level world, int x, int y, int z, Player player) {
-        Builder builder = Builder.setup(world,x,y,z).setOrigin(Builder.Origin.FROM,10);
+        Builder builder = Builder.setup(world,x,y,z,player).setOrigin(Builder.Origin.FROM,10);
         Single.setup(builder,world,x,y,z).setBlock(Blocks.AIR).queue();
         Sphere.setup(builder,world,x,y,z,Common.CONFIG.RADIUS_LIGHT()).setBlock(BlockType.conditionalTorch()).queue();
-        builder.build();
-        setCreateMessage(Strings.CREATE_LIGHT);
+
+        if(!builder.hasEnoughCharge()) {
+            Helper.sendMessage(player, Core.Strings.ERROR_WAND_CHARGE);
+			return false;
+		}
+
+		builder.build();
+        setCreateMessage(Common.Strings.CREATE_LIGHT);
         return true;
 	}
 

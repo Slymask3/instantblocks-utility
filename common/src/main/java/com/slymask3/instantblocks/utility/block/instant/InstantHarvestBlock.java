@@ -1,5 +1,6 @@
 package com.slymask3.instantblocks.utility.block.instant;
 
+import com.slymask3.instantblocks.core.Core;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.builder.Builder;
 import com.slymask3.instantblocks.core.builder.type.Single;
@@ -8,7 +9,6 @@ import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.Common;
 import com.slymask3.instantblocks.utility.block.entity.HarvestBlockEntity;
 import com.slymask3.instantblocks.utility.gui.screens.HarvestScreen;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -30,7 +30,7 @@ public class InstantHarvestBlock extends InstantBlock implements EntityBlock {
 				.sound(SoundType.WOOD)
 		);
 		hasScreen();
-		setCreateMessage(Strings.CREATE_HARVEST);
+		setCreateMessage(Common.Strings.CREATE_HARVEST);
 	}
 
 	public boolean isEnabled() {
@@ -47,7 +47,7 @@ public class InstantHarvestBlock extends InstantBlock implements EntityBlock {
 	}
 	
 	public boolean build(Level world, int X, int Y, int Z, Player player) {
-		Builder builder = Builder.setup(world,X,Y,Z).setSpeed(2).setDirection(Direction.DOWN);
+		Builder builder = Builder.setup(world,X,Y,Z,player).setSpeed(2).setDirection(Direction.DOWN);
 
 		HarvestBlockEntity blockEntity = (HarvestBlockEntity)world.getBlockEntity(new BlockPos(X,Y,Z));
 		int radius = Common.CONFIG.RADIUS_HARVEST();
@@ -146,6 +146,11 @@ public class InstantHarvestBlock extends InstantBlock implements EntityBlock {
             z = z_base;
             y--;
         }
+
+		if(!builder.hasEnoughCharge()) {
+			Helper.sendMessage(player, Core.Strings.ERROR_WAND_CHARGE);
+			return false;
+		}
 
 		builder.build();
 

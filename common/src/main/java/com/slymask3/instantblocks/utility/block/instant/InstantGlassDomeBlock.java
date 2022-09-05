@@ -1,13 +1,14 @@
 package com.slymask3.instantblocks.utility.block.instant;
 
+import com.slymask3.instantblocks.core.Core;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.builder.BlockType;
 import com.slymask3.instantblocks.core.builder.Builder;
 import com.slymask3.instantblocks.core.builder.type.Circle;
 import com.slymask3.instantblocks.core.builder.type.Single;
 import com.slymask3.instantblocks.core.builder.type.Sphere;
+import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.Common;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -36,7 +37,7 @@ public class InstantGlassDomeBlock extends InstantBlock {
 				.isRedstoneConductor((state, world, pos) -> false)
 				.isViewBlocking((state, world, pos) -> false)
 		);
-		setCreateMessage(Strings.CREATE_DOME);
+		setCreateMessage(Common.Strings.CREATE_DOME);
     }
 
 	public boolean isEnabled() {
@@ -65,7 +66,7 @@ public class InstantGlassDomeBlock extends InstantBlock {
 	}
 
 	public boolean build(Level world, int x, int y, int z, Player player) {
-		Builder builder = Builder.setup(world,x,y,z).setSpeed(2);
+		Builder builder = Builder.setup(world,x,y,z,player).setSpeed(2);
 
 		Block glass = Blocks.GLASS;
 		Block torch = Blocks.TORCH;
@@ -81,6 +82,11 @@ public class InstantGlassDomeBlock extends InstantBlock {
 			Single.setup(builder,world,x-i,y+1,z).setBlock(torch).queue(1000,false);
 			Single.setup(builder,world,x,y+1,z+i).setBlock(torch).queue(1000,false);
 			Single.setup(builder,world,x,y+1,z-i).setBlock(torch).queue(1000,false);
+		}
+
+		if(!builder.hasEnoughCharge()) {
+			Helper.sendMessage(player, Core.Strings.ERROR_WAND_CHARGE);
+			return false;
 		}
 
 		builder.build();

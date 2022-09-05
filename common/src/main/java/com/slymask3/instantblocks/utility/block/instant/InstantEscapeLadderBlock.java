@@ -1,12 +1,12 @@
 package com.slymask3.instantblocks.utility.block.instant;
 
+import com.slymask3.instantblocks.core.Core;
 import com.slymask3.instantblocks.core.block.InstantBlock;
 import com.slymask3.instantblocks.core.builder.Builder;
 import com.slymask3.instantblocks.core.builder.type.Multiple;
 import com.slymask3.instantblocks.core.builder.type.Single;
 import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.Common;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -46,14 +46,14 @@ public class InstantEscapeLadderBlock extends InstantBlock implements SimpleWate
 
 	public boolean canActivate(Level world, BlockPos pos, Player player) {
 		if(world.canSeeSky(pos.above(1))) {
-			Helper.sendMessage(player, Strings.ERROR_ESCAPE_LADDER);
+			Helper.sendMessage(player, Common.Strings.ERROR_ESCAPE_LADDER);
 			return false;
 		}
 		return true;
 	}
 
 	public boolean build(Level world, int x, int y, int z, Player player) {
-		Builder builder = Builder.setup(world,x,y,z).setDirection(Direction.UP);
+		Builder builder = Builder.setup(world,x,y,z,player).setDirection(Direction.UP);
 
 		Block ladder = Blocks.LADDER;
 		Block torch = Blocks.TORCH;
@@ -90,9 +90,14 @@ public class InstantEscapeLadderBlock extends InstantBlock implements SimpleWate
 			}
 		}
 
+		if(!builder.hasEnoughCharge()) {
+			Helper.sendMessage(player, Core.Strings.ERROR_WAND_CHARGE);
+			return false;
+		}
+
 		builder.build();
 
-		setCreateMessage(Strings.CREATE_ESCAPE_LADDER, String.valueOf(y_top-y));
+		setCreateMessage(Common.Strings.CREATE_ESCAPE_LADDER, String.valueOf(y_top-y));
 
 		return true;
 	}

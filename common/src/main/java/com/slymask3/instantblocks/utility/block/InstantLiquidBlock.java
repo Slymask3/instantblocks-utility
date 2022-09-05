@@ -11,7 +11,6 @@ import com.slymask3.instantblocks.core.util.Helper;
 import com.slymask3.instantblocks.utility.Common;
 import com.slymask3.instantblocks.utility.block.instant.InstantSuctionBlock;
 import com.slymask3.instantblocks.utility.block.instant.InstantWaterBlock;
-import com.slymask3.instantblocks.utility.reference.Strings;
 import com.slymask3.instantblocks.utility.registry.ModBlocks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -116,7 +115,7 @@ public abstract class InstantLiquidBlock extends InstantBlock {
 
 	public boolean canActivate(Level world, BlockPos pos, Player player) {
 		if(Helper.isNether(world) && blockReplace.equals(Blocks.WATER) && !Core.CONFIG.ALLOW_WATER_IN_NETHER()) {
-			Helper.sendMessage(player, Strings.ERROR_WATER_DISABLED);
+			Helper.sendMessage(player, Common.Strings.ERROR_WATER_DISABLED);
 			return false;
 		}
 		return true;
@@ -137,7 +136,7 @@ public abstract class InstantLiquidBlock extends InstantBlock {
 		});
 
 		if(isSuction() && holder.isEmpty()) {
-			Helper.sendMessage(player, Strings.ERROR_NO_LIQUID);
+			Helper.sendMessage(player, Common.Strings.ERROR_NO_LIQUID);
 			Helper.showParticles(world, origin, ClientHelper.Particles.NO_LIQUID);
 			return false;
 		}
@@ -146,7 +145,7 @@ public abstract class InstantLiquidBlock extends InstantBlock {
 			return false;
 		}
 
-		Builder builder = Builder.setup(world,x,y,z).setOrigin(isSuction() ? Builder.Origin.TO : Builder.Origin.FROM);
+		Builder builder = Builder.setup(world,x,y,z,player).setOrigin(isSuction() ? Builder.Origin.TO : Builder.Origin.FROM);
 		for(BlockPos pos : holder.getList()) {
 			BlockState state = world.getBlockState(pos);
 			if(isSuction() && state.hasProperty(BlockStateProperties.WATERLOGGED) && state.getValue(BlockStateProperties.WATERLOGGED)) {
@@ -163,6 +162,12 @@ public abstract class InstantLiquidBlock extends InstantBlock {
 		} else {
 			setCreateMessage(create1);
 		}
+
+		if(!builder.hasEnoughCharge()) {
+			Helper.sendMessage(player, Core.Strings.ERROR_WAND_CHARGE);
+			return false;
+		}
+
 		builder.build();
 		if(isSuction()) {
 			this.blockCheck = null;
